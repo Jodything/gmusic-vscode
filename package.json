@@ -1,0 +1,86 @@
+{
+	"name": "gmusic-vscode",
+	"displayName": "gMusic-vscode",
+	"description": "",
+	"version": "0.0.1",
+	"publisher": "Jodything",
+	"engines": {
+		"vscode": "^1.17.0"
+	},
+	"categories": [
+    "Other"
+  ],
+	"activationEvents": [
+    "*"
+  ],
+	"main": "./out/src/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "gmusic.getAccessCode",
+				"title": "GMusic: get 4 digit access code from GPMDP"
+	  		},
+			{
+				"command": "gmusic.getCurrentTrack",
+				"title": "GMusic: get current track info"
+			},
+			{
+				"command": "gmusic.playPause",
+				"title": "GMusic: play|pause current track"
+			},
+			{
+				"command": "gmusic.nextTrack",
+				"title": "GMusic: play next track"
+			},
+			{
+				"command": "gmusic.prevTrack",
+				"title": "GMusic: play previous track"
+			},
+			{
+				"command": "gmusic.getVolume",
+				"title": "GMusic: Get Volume"
+			},
+			{
+				"command": "gmusic.increaseVolume",
+				"title": "GMusic: increase volume +5"
+			},
+			{
+				"command": "gmusic.decreaseVolume",
+				"title": "GMusic: decrease volume -5"
+			},
+			{
+				"command": "gmusic.setVolume",
+				"title": "GMusic: set volume"
+			}
+	],
+		"configuration": {
+			"type": "object",
+			"title": "gmusic-vscode configuration",
+			"properties": {
+				"gmusic.apiKey": {
+					"type": "string",
+					"default": "notSet",
+					"description": "permanent authorization code for GPMDP"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^2.5.2",
+		"vscode": "^1.1.5",
+		"mocha": "^3.5.0",
+		"@types/node": "^7.0.43",
+		"@types/mocha": "^2.2.42"
+	},
+	"dependencies": {
+		"chokidar": "^1.7.0",
+		"ws": "^3.2.0"
+	}
+}
