@@ -1,5 +1,7 @@
 import { window } from 'vscode';
 import { getAPIKey, updateAPIKey } from '../Config/gMusicConfig';
+import { Controls } from './controls';
+
 const socketPath = 'ws://localhost:5672';
 const chokidar = require('chokidar');
 const WebSocket = require('ws');
@@ -7,6 +9,7 @@ const WebSocket = require('ws');
 
 export class Connect {
 	private _apiKey = getAPIKey();
+	private _controls: Controls;
 	private _toConnect = {
 		"namespace": "connect",
 		"method": "connect",
@@ -17,6 +20,8 @@ export class Connect {
 	constructor() {
 		this.ws = new WebSocket(socketPath);
 		this.openConnection();
+		this._controls = new Controls();
+		this._controls.showVisible();
 	}
 
 	public openConnection() {
@@ -36,12 +41,17 @@ export class Connect {
 		console.log('I am listening...');
 		this.ws.on('message', (response) => {
 			let res = JSON.parse(response);
+			
 			if (res.payload == 'CODE_REQUIRED') {
 				console.log('grab that code!')
 				this.grabAccessCode();
 			}
 			if (res.channel === 'connect' && res.payload !== 'CODE_REQUIRED') {
 				updateAPIKey(res.payload);
+			}
+
+			if (res.channel === 'track') {
+				this._controls.updateTrackInfo(res.payload);
 			}
 		})
 	}
