@@ -7,6 +7,17 @@
 	"engines": {
 		"vscode": "^1.17.0"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Jodything/gmusic-vscode"
+	},
+	"keywords": [
+		"Google Play Music",
+		"Google",
+		"GPMDP",
+		"Google Play Music Desktop Player",
+		"gmusic"
+	],
 	"categories": [
 		"Other"
 	],
