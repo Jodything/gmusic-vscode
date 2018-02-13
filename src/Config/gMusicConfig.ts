@@ -14,3 +14,11 @@ export function updateAPIKey(result: string) {
 		getConfig().update('apiKey', result);
 	}
 }
+
+export function isButtonVisible(buttonGroup: string): boolean {
+	return getConfig().get('show' + buttonGroup[0].toUpperCase() + buttonGroup.slice(1), true);
+}
+
+export function getFontColor():string {
+	return getConfig().get<string>('color');
+}

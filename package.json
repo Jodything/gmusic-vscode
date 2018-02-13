@@ -8,18 +8,18 @@
 		"vscode": "^1.17.0"
 	},
 	"categories": [
-    "Other"
-  ],
+		"Other"
+	],
 	"activationEvents": [
-    "*"
-  ],
+		"*"
+	],
 	"main": "./out/src/extension",
 	"contributes": {
 		"commands": [
 			{
 				"command": "gmusic.getAccessCode",
 				"title": "GMusic: get 4 digit access code from GPMDP"
-	  		},
+			},
 			{
 				"command": "gmusic.getCurrentTrack",
 				"title": "GMusic: get current track info"
@@ -52,7 +52,7 @@
 				"command": "gmusic.setVolume",
 				"title": "GMusic: set volume"
 			}
-	],
+		],
 		"configuration": {
 			"type": "object",
 			"title": "gmusic-vscode configuration",
@@ -61,6 +61,26 @@
 					"type": "string",
 					"default": "notSet",
 					"description": "permanent authorization code for GPMDP"
+				},
+				"gmusic.color": {
+					"type": "string",
+					"default": "#ff5722",
+					"description": "color of font and buttons in bottom status bar"
+				},
+				"gmusic.showAlbum": {
+					"type": "boolean",
+					"default": true,
+					"description": "display album name in bottom status bar"
+				},
+				"gmusic.showActionControls": {
+					"type": "boolean",
+					"default": true,
+					"description": "display action buttons (previous track, play/pause, next track) in bottom status bar"
+				},
+				"gmusic.showVolumeControls": {
+					"type": "boolean",
+					"default": true,
+					"description": "display volume buttons (volume down, volume up) in bottom status bar"
 				}
 			}
 		}

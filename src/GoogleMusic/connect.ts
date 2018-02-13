@@ -60,7 +60,7 @@ export class Connect {
 		const opts = {
 			"ignoreFocusOut": true,
 			"prompt": "A UI will popup in GPMDP containing a 4 digit code. Please copy the code and paste it above.",
-			"value": "Type/Paste 4 digit code here."
+			"placeHolder": "Type/Paste 4 digit code here."
 		};
 		window.showInputBox(opts).then(result => {
 			this._toConnect.arguments.push(result);
