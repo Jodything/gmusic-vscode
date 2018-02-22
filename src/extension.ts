@@ -1,10 +1,9 @@
-import { commands, Disposable, ExtensionContext, window } from 'vscode';
-import { Connect } from './GoogleMusic/connect';
-import { createCommands} from './Commands/createCommands';
+import { ExtensionContext } from 'vscode';
+import { createCommands } from './Commands/createCommands';
 
 export function activate(context: ExtensionContext) {
-	
-    console.info('Congratulations, your extension "gmusic-vscode" is now active!');
+
+	console.info('Congratulations, your extension "gmusic-vscode" is now active!');
 	context.subscriptions.push(createCommands());
 }
 

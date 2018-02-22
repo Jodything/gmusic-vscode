@@ -1,4 +1,4 @@
-# gmusic-vscode README
+# VSCode Google Music Extension
 
 This is a companion extension for [Google Play Music Desktop Player](https://www.googleplaymusicdesktopplayer.com/). It provides integration for the Mac desktop client.
 

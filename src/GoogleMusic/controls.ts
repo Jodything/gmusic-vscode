@@ -18,6 +18,9 @@ export class Controls {
 	}
 
 	updateTrackInfo(payload: trackData) {
+		if (!payload.artist || !payload.title) {
+			return;
+		}
 		if (!this._songStatusbar) {
 			this._songStatusbar = window.createStatusBarItem(StatusBarAlignment.Left, 10);
 		}
@@ -39,7 +42,7 @@ export class Controls {
 			{ id: 'increaseVolume', text: '$(chevron-up)', buttonPriority: 4, group: this._volCtrls }
 		];
 
-		const extension = extensions.getExtension('Jodything.gmusic-vscode');
+		const extension = extensions.getExtension('Jodything.google-music');
 		if (!extension) {
 			this._buttons = [];
 			return;
