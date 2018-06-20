@@ -25,8 +25,8 @@ export class Controls {
 			this._songStatusbar = window.createStatusBarItem(StatusBarAlignment.Left, 10);
 		}
 		var text = `${payload.artist} - ${payload.title}`;
-		if (isButtonVisible('album')) {
-			text += ` (${payload.album})`;
+		if (isButtonVisible('album') && payload.album !== 'Unknown Album') {
+			text += ` [${payload.album}]`;
 		}
 		this._songStatusbar.text = text;
 		this._songStatusbar.color = this._textColor;

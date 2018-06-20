@@ -1,7 +1,7 @@
 {
 	"name": "google-music",
 	"displayName": "google-music",
-	"description": "Control Google Play Music Desktop Player right from the editor.",
+	"description": "Control Google Play Music Desktop Player right from inside the editor.",
 	"version": "0.0.1",
 	"publisher": "Jodything",
 	"engines": {

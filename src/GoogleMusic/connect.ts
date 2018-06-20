@@ -41,7 +41,6 @@ export class Connect {
 		console.log('I am listening...');
 		this.ws.on('message', (response) => {
 			let res = JSON.parse(response);
-			
 			if (res.payload == 'CODE_REQUIRED') {
 				console.log('grab that code!')
 				this.grabAccessCode();
@@ -52,6 +51,11 @@ export class Connect {
 
 			if (res.channel === 'track') {
 				this._controls.updateTrackInfo(res.payload);
+			}
+
+			// TODO: hide statusbar if not connected
+			if (res.channel == 'playState' && res.payload == false) {
+				console.log('hide the bar');
 			}
 		})
 	}
